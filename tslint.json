@@ -57,6 +57,7 @@
         "no-internal-module": true,
         "no-trailing-whitespace": true,
         "no-null-keyword": true,
+        "no-duplicate-imports": true,
         "no-any": true,
         "prefer-const": true,
         "jsdoc-format": true
