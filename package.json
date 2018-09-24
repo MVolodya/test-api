@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/MVolodya/simple-api#readme",
   "dependencies": {
+    "apollo-server-koa": "^2.0.0-rc.12",
+    "graphql": "^14.0.2",
     "koa": "^2.5.3",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.4.0"
