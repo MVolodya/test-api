@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts",
+    "start": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' -r dotenv/config ./src/server.ts",
     "prettier": "./node_modules/.bin/prettier --write ./src/**/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,11 +20,19 @@
   },
   "homepage": "https://github.com/MVolodya/simple-api#readme",
   "dependencies": {
+    "@types/graphql": "^14.0.1",
+    "@types/lodash.mapkeys": "^4.6.4",
+    "@types/node": "^10.11.0",
+    "@types/node-fetch": "^2.1.2",
     "apollo-server-koa": "^2.0.0-rc.12",
+    "dotenv": "^6.0.0",
     "graphql": "^14.0.2",
     "koa": "^2.5.3",
+    "koa-body": "^4.0.4",
     "koa-morgan": "^1.0.1",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "lodash.mapkeys": "^4.6.0",
+    "node-fetch": "^2.2.0"
   },
   "devDependencies": {
     "@types/koa": "^2.0.46",
