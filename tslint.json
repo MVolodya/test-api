@@ -60,7 +60,8 @@
         "no-duplicate-imports": true,
         "no-any": true,
         "prefer-const": true,
-        "jsdoc-format": true
+        "jsdoc-format": true,
+        "object-literal-sort-keys": false
     },
     "rulesDirectory": [],
     "linterOptions": {

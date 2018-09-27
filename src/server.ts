@@ -1,23 +1,14 @@
-import { ApolloServer, gql } from 'apollo-server-koa';
+import { ApolloServer } from 'apollo-server-koa';
 import Koa from 'koa';
 import morgan from 'koa-morgan';
 import Router from 'koa-router';
+import { schema } from './graphql/shema';
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!',
-  },
-};
+const { PORT } = process.env;
 
 const app = new Koa();
 const router = new Router();
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({schema});
 
 app.use(morgan('dev')).use(router.routes());
 
@@ -25,10 +16,6 @@ app.use(morgan('dev')).use(router.routes());
 // tslint:disable-next-line
 server.applyMiddleware({ app: app as any });
 
-router.get('/', async ctx => {
-  ctx.body = 'Hello World!';
-});
+app.listen(PORT);
 
-app.listen(3000);
-
-console.log('Server running on port 3000');
+console.log(`Server running on port: ${PORT}`);
