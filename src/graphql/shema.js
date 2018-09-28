@@ -1,4 +1,4 @@
-import { makeExecutableSchema } from 'apollo-server-koa';
+import { makeExecutableSchema } from 'apollo-server';
 import { resolvers as userResolvers, typeDef as User } from './user';
 
 const typeDefs = `
@@ -13,8 +13,7 @@ const resolvers = {
   }
 };
 
-// @ts-ignore
 export const schema = makeExecutableSchema({
-  typeDefs: [ typeDefs, User],
+  typeDefs: [ typeDefs, User ],
   resolvers: [ resolvers, userResolvers ],
 });
