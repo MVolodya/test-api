@@ -9,11 +9,11 @@ const typeDefs = `
 
 const resolvers = {
   Query: {
-    getUser: userResolvers.User
-  }
+    getUser: userResolvers.User,
+  },
 };
 
 export const schema = makeExecutableSchema({
-  typeDefs: [ typeDefs, User ],
-  resolvers: [ resolvers, userResolvers ],
+  typeDefs: [typeDefs, User],
+  resolvers: [resolvers, userResolvers],
 });
