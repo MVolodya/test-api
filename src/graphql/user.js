@@ -1,7 +1,6 @@
 import mapKeys from 'lodash.mapkeys';
 import fetch from 'node-fetch';
-
-const { URL } = process.env;
+import { URL } from 'babel-dotenv';
 
 export const typeDef = `
   type User {
@@ -19,14 +18,11 @@ export const typeDef = `
 `;
 
 export const resolvers = {
- // tslint:disable-next-line
-  User: async (_: any, { email }: any) => {
-    const response = await fetch(
-      `${URL}=${email}`,
-    ).then(data => data.json())
-      // @ts-ignore
-    .then(data => data.map(userData => mapKeys(userData, (value, key) => key.replace(/\s/g, ''))));
+  User: async (_, { email }) => {
+    const response = await fetch(`${URL}=${email}`)
+      .then(data => data.json())
+      .then(data => data.map(u => mapKeys(u, (v, k) => k.replace(/\s/g, ''))));
 
     return response;
-  }
+  },
 };
